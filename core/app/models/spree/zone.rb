@@ -24,7 +24,7 @@ module Spree
                  spree_zone_members.zoneable_id IN (?))",
               state_ids,
               country_ids
-            ).uniq
+            ).distinct
           end
 
     alias :members :zone_members
