@@ -22,7 +22,7 @@ module Spree
 
       let(:variant) {
         variant = product.master
-        variant.stock_items.each { |si| si.update_attribute(:count_on_hand, 10) }
+        variant.stock_items.each { |si| si.set_count_on_hand(10) }
         variant
       }
 
