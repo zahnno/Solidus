@@ -5,8 +5,8 @@ Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
-Devise.secret_key = "4930dd9d866d6c4215fffa7b48c73355763420c80e0e35e216216192d2404627ad853a91ab778b70c5399c675b1684d5f64d"
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Devise.secret_key = "2c2313c4160badd430b773bfc5050f4b1b93ed3f37eddd43386441e0873d9d6ee5f808c0b3323a75b8c0fc5913862e9c1977"

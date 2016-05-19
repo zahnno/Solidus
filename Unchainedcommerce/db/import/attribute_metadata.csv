@@ -1,0 +1,55 @@
+attribute_code,name,parent_code
+NUT,Nutrition,
+SSZ,Serving Size,NUT
+SPC,Servings Per Container,NUT
+APS,Amount Per Serving,NUT
+CAL,Calories,NUT
+CFF,Calories from Fat,NUT
+DVL,% Daily Value*,NUT
+TFT,Total Fat,DVL
+SFT,Saturdated Fat,TFT
+TRF,Trans Fat,TFT
+CHL,Cholesterol,DVL
+SDM,Sodium,DVL
+TCB,Total Carbohydrate,DVL
+DFB,Dietary Fiber,TCB
+SGR,Sugars,TCB
+PRN,Protein,NUT
+TFT_2,Total Fats,NUT
+SFT_2,Saturdated Fat,TFT_2
+TRF_2,Trans Fat,TFT_2
+CHL_2,Cholesterol,NUT
+SDM_2,Sodium,NUT
+TCB_2,Total Carbohydrate,NUT
+DFB_2,Dietary Fiber,TCB_2
+SGR_2,Sugars,TCB_2
+VTMA,Vitamin A,DVL
+VTMC,Vitamin C,DVL
+CAM,Calcium,DVL
+IRN,Iron,DVL
+LEGAL,"*Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs. ",DVL
+CAL_3,Calories,DVL
+CAL_4,Calories,DVL
+TLF_4,Total Fat,CAL_3
+STF_4,Saturdated Fat,TLF_4
+CHL_4,Cholesterol,CAL_3
+SDM_4,Sodium,CAL_3
+TLC_4,Total Carbohydrate,CAL_3
+DTF_4,DIetary Fiber,TLC_4
+TLF_5,Total Fat,CAL_4
+STF_5,Saturdated Fat,TLF_5
+CHL_5,Cholesterol,CAL_4
+SDM_5,Sodium,CAL_4
+TLC_5,Total Carbohydrate,CAL_4
+DTF_5,DIetary Fiber,TLC_5
+INGR,Ingredients,
+PRD_TAGS,Product Tags,
+LLSDM,Low/Light Sodium,PRD_TAGS
+NDRY,Non-Dairy,PRD_TAGS
+VGN,Vegan,PRD_TAGS
+ORGNC,Organic,PRD_TAGS
+NGMO,Non-GMO Ingredients,PRD_TAGS
+VGTRN,Vegetarian,PRD_TAGS
+KSHR,Kosher,PRD_TAGS
+GLUFR,Gluten-Free,PRD_TAGS
+SYFR,Soy-Free,PRD_TAGS

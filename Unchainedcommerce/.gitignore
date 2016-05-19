@@ -16,10 +16,6 @@
 !/log/.keep
 /tmp
 
-/unchainedcommerce_app/db/migrate/
-schema.rb
-Gemfile.lock
-
 .vagrant/
 *.log
 *.DS_Store
