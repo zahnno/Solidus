@@ -1,3 +1,6 @@
+#Unchained
+######Unchained Enterprise is GALE’s agile commerce and content marketing technology stack. Allowing marketers to quickly implement new cross-platform digital experiences, manage the content, and quickly analyze the impact, Unchained is built for today's marketing challenges with its adaptable nature and user-friendly interface.
+
 #Installing UnchainedCommerce
 
 ```
@@ -22,5 +25,7 @@ rake db:migrate
 ```
 
 #API CALLS
+
+Follow link below for all api calls.
 
 http://zahnno.github.io/
