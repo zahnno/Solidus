@@ -1,4 +1,4 @@
-#Setting the Project Up
+#Installing UnchainedCommerce
 
 ```
 clone repo at https://github.com/zahnno/Solidus
