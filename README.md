@@ -1,6 +1,6 @@
 #Setting the Project Up
 
-'''
+```
 clone repo at https://github.com/zahnno/Solidus
 cd solidus
 vagrant up
@@ -19,7 +19,7 @@ bundle install
 rails g spree:install
 railties:install:migrations
 rake db:migrate
-'''
+```
 
 #API CALLS
 
