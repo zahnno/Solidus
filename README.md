@@ -24,7 +24,7 @@ railties:install:migrations
 rake db:migrate
 ```
 
-#API CALLS
+##API CALLS
 
 ######Follow link below for all api calls.
 
