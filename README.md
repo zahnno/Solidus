@@ -20,7 +20,7 @@ gem install bundler
 bundle update
 bundle install
 rails g spree:install
-railties:install:migrations
+rake railties:install:migrations
 rake db:migrate
 ```
 
