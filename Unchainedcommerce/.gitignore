@@ -22,3 +22,4 @@
 /unchainedcommerce_app/db/migrate/
 schema.rb
 Gemfile.lock
+Vagrantfile
