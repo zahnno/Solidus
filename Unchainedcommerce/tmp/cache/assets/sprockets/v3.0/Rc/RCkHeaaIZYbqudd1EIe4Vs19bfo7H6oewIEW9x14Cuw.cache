@@ -1,0 +1,14 @@
+I"x(function() {
+  $(document).ready(function() {
+    $('#confirm-ship-transfer-button').on('click', function(ev) {
+      ev.preventDefault();
+      return $('#ship-stock-transfer-warning').show();
+    });
+    return $('#cancel-ship-link').on('click', function(ev) {
+      ev.preventDefault();
+      return $('#ship-stock-transfer-warning').hide();
+    });
+  });
+
+}).call(this);
+:ET

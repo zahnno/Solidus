@@ -1,0 +1,19 @@
+I"(function() {
+  $(document).ready(function() {
+    if ($('#received-transfer-items').length > 0) {
+      Spree.StockTransfers.VariantForm.initializeForm(false);
+      Spree.StockTransfers.VariantForm.beginListeningForReceive();
+      Spree.StockTransfers.CountUpdateForms.beginListening(true);
+      $("#close-transfer-button").on('click', function(ev) {
+        ev.preventDefault();
+        return $('#close-stock-transfer-warning').show();
+      });
+      return $("#cancel-close-link").on('click', function(ev) {
+        ev.preventDefault();
+        return $('#close-stock-transfer-warning').hide();
+      });
+    }
+  });
+
+}).call(this);
+:ET

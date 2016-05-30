@@ -1,0 +1,11 @@
+I"(function() {
+  $(document).ready(function() {
+    if (!($('#listing_product_stock').length > 0)) {
+      return;
+    }
+    Spree.StockManagement.IndexAddForms.beginListening();
+    return Spree.StockManagement.IndexUpdateForms.beginListening();
+  });
+
+}).call(this);
+:ET
