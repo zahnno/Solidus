@@ -24,6 +24,21 @@ rake railties:install:migrations
 rake db:migrate
 ```
 
+###Running server
+
+In Terminal:
+```
+rails s -b 0.0.0.0 -p 8000
+```
+
+###Viewing the Site
+
+In your Web Browser
+```
+localhost:8000
+```
+
+
 ##API CALLS
 
 ######Follow link below for all api calls.
