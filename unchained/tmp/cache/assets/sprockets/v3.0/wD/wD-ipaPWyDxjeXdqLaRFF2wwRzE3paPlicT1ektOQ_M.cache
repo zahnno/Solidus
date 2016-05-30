@@ -1,0 +1,20 @@
+I"Ö(function() {
+  $(document).ready(function() {
+    if ($('#stock-transfer-transfer-items').length > 0) {
+      Spree.StockTransfers.VariantForm.initializeForm(true);
+      Spree.StockTransfers.VariantForm.beginListeningForAdd();
+      Spree.StockTransfers.CountUpdateForms.beginListening(false);
+      Spree.StockTransfers.TransferItemDeleting.beginListening();
+      $("#ready-to-ship-transfer-button").on('click', function(ev) {
+        ev.preventDefault();
+        return $('#finalize-stock-transfer-warning').show();
+      });
+      return $("#cancel-finalize-link").on('click', function(ev) {
+        ev.preventDefault();
+        return $('#finalize-stock-transfer-warning').hide();
+      });
+    }
+  });
+
+}).call(this);
+:ET

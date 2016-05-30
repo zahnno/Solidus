@@ -1,0 +1,99 @@
+I"`(function() {
+  var IndexUpdateForms;
+
+  IndexUpdateForms = (function() {
+    var errorHandler, restoreBackorderableState, showEditForm, showReadOnlyElements, storeBackorderableState, successHandler, toggleBackorderable;
+
+    function IndexUpdateForms() {}
+
+    IndexUpdateForms.beginListening = function() {
+      $('body').on('click', '#listing_product_stock .fa-edit', (function(_this) {
+        return function(ev) {
+          var stockItemId;
+          ev.preventDefault();
+          stockItemId = $(ev.currentTarget).data('id');
+          storeBackorderableState(stockItemId);
+          Spree.NumberFieldUpdater.hideReadOnly(stockItemId);
+          return showEditForm(stockItemId);
+        };
+      })(this));
+      $('body').on('click', '#listing_product_stock .fa-void', (function(_this) {
+        return function(ev) {
+          var stockItemId;
+          ev.preventDefault();
+          stockItemId = $(ev.currentTarget).data('id');
+          restoreBackorderableState(stockItemId);
+          Spree.NumberFieldUpdater.hideForm(stockItemId);
+          return showReadOnlyElements(stockItemId);
+        };
+      })(this));
+      return $('body').on('click', '#listing_product_stock .fa-check', (function(_this) {
+        return function(ev) {
+          var backorderable, countOnHand, stockItem, stockItemId, stockLocationId;
+          ev.preventDefault();
+          stockItemId = $(ev.currentTarget).data('id');
+          stockLocationId = $(ev.currentTarget).data('location-id');
+          backorderable = $("#backorderable-" + stockItemId).prop("checked");
+          countOnHand = parseInt($("#number-update-" + stockItemId + " input[type='number']").val(), 10);
+          stockItem = new Spree.StockItem({
+            id: stockItemId,
+            countOnHand: countOnHand,
+            backorderable: backorderable,
+            stockLocationId: stockLocationId
+          });
+          return stockItem.update(successHandler, errorHandler);
+        };
+      })(this));
+    };
+
+    showReadOnlyElements = function(stockItemId) {
+      toggleBackorderable(stockItemId, false);
+      return Spree.NumberFieldUpdater.showReadOnly(stockItemId);
+    };
+
+    showEditForm = function(stockItemId) {
+      toggleBackorderable(stockItemId, true);
+      return Spree.NumberFieldUpdater.showForm(stockItemId);
+    };
+
+    toggleBackorderable = function(stockItemId, show) {
+      var disabledValue;
+      disabledValue = show ? null : 'disabled';
+      return $("#backorderable-" + stockItemId).prop('disabled', disabledValue);
+    };
+
+    storeBackorderableState = function(stockItemId) {
+      var backorderableCheckbox;
+      backorderableCheckbox = $("#backorderable-" + stockItemId);
+      return backorderableCheckbox.parent('td').attr('was-checked', backorderableCheckbox.prop('checked'));
+    };
+
+    restoreBackorderableState = function(stockItemId) {
+      var backorderableCheckbox, checked;
+      backorderableCheckbox = $("#backorderable-" + stockItemId);
+      checked = backorderableCheckbox.parent('td').attr('was-checked') === "true";
+      return backorderableCheckbox.prop('checked', checked);
+    };
+
+    successHandler = function(stockItem) {
+      toggleBackorderable(stockItem.id, false);
+      Spree.NumberFieldUpdater.successHandler(stockItem.id, stockItem.count_on_hand);
+      return show_flash("success", Spree.translations.updated_successfully);
+    };
+
+    errorHandler = function(errorData) {
+      return show_flash("error", errorData.responseText);
+    };
+
+    return IndexUpdateForms;
+
+  })();
+
+  if (Spree.StockManagement == null) {
+    Spree.StockManagement = {};
+  }
+
+  Spree.StockManagement.IndexUpdateForms = IndexUpdateForms;
+
+}).call(this);
+:ET
