@@ -19,6 +19,7 @@
 .vagrant/
 *.log
 *.DS_Store
+/unchainedcommerce/tmp
 /unchainedcommerce_app/db/migrate/
 schema.rb
 Gemfile.lock
