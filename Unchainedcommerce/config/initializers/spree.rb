@@ -6,7 +6,6 @@ Spree.config do |config|
   # changes them to be stored in memory.
   # This will be the default in a future version.
   config.use_static_preferences!
-
   # Core:
 
   # Default currency for new sites

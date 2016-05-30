@@ -7,7 +7,7 @@ namespace :import do
   task :products => :environment do
     # Clear the product and Attribute tables
     Spree::Product.destroy_all
-    UnchainedCommerce::ProductAttribute.destroy_all
+    UnchainedProductAttribute.destroy_all
     Spree::Sample.load_sample("shipping_categories")
     products_path = Rails.root.join('db','import','product_list.csv')
     shipping_category = Spree::ShippingCategory.find_by_name!("Default")
@@ -20,9 +20,9 @@ namespace :import do
     }
 
     def attribute_structure(attribute_object,product_id,parent_attribute=nil)
-      attribute = UnchainedCommerce::Attribution.find_by_attribute_code(attribute_object)
-      attribute_map = UnchainedCommerce::AttributeMap.where(:attribution_id=>attribute.id, :parent_attribute_id=>parent_attribute).first
-      UnchainedCommerce::ProductAttribute.create(:product_id=>product_id,:attribute_map_id=>attribute_map.id)
+      attribute = UnchainedAttribution.find_by_attribute_code(attribute_object)
+      attribute_map = UnchainedAttributeMap.where(:attribution_id=>attribute.id, :parent_attribute_id=>parent_attribute).first
+      UnchainedProductAttribute.create(:product_id=>product_id,:attribute_map_id=>attribute_map.id)
       #puts "Added Attribute to Product" + attribute.name
       attribute_children = attribute.children
       unless attribute_children.blank?
@@ -95,10 +95,10 @@ namespace :import do
     products_attribute_values = Rails.root.join('db','import','values.csv')
     CSV.foreach(products_attribute_values, headers: true, encoding: 'iso-8859-1') do |product_value|
       product = Spree::Product.find_by_code(product_value["product_code"])
-      attribute = UnchainedCommerce::Attribution.find_by_attribute_code(product_value["attribute_code"])
+      attribute = UnchainedAttribution.find_by_attribute_code(product_value["attribute_code"])
       unless product.blank?
-        attribute_map = UnchainedCommerce::AttributeMap.where(:attribution_id=>attribute.id).first
-        product_attribute = UnchainedCommerce::ProductAttribute.where(:product_id=>product.id,:attribute_map_id=>attribute_map.id)
+        attribute_map = UnchainedAttributeMap.where(:attribution_id=>attribute.id).first
+        product_attribute = UnchainedProductAttribute.where(:product_id=>product.id,:attribute_map_id=>attribute_map.id)
         unless product_attribute.blank?
           product_attribute.first.update_attributes(:value=>product_value["attribute_value"])
         else
