@@ -33,9 +33,24 @@ rails s -b 0.0.0.0 -p 8000
 
 ###Viewing the Site
 
-In your Web Browser
+In your Web Browsers URL Search
 ```
 localhost:8000
+```
+
+###Accessing Admin Panel
+
+In your Web Browser URL Search
+```
+localhost:8000/admin
+```
+Use the admin email and password you inputed during the rails g spree:install.
+
+###Creating a Admin User
+
+In your Terminal.
+```
+rake spree_auth:admin:create
 ```
 
 
