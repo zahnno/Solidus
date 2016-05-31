@@ -46,7 +46,7 @@ localhost:8000/admin
 ```
 Use the admin email and password you inputed during the rails g spree:install.
 
-###Creating a Admin User
+###Creating an Admin User
 
 In your Terminal.
 ```
