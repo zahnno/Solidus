@@ -40,11 +40,11 @@ localhost:8000
 
 ###Accessing Admin Panel
 
-In your Web Browser URL Search
+In your Web Browsers URL Search
 ```
 localhost:8000/admin
 ```
-Use the admin email and password you inputed during the rails g spree:install.
+Use the admin email and password you inputted during the rails g spree:install.
 
 ###Creating an Admin User
 
